@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 section{
@@ -14,5 +15,39 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+h1{
+    color: goldenrod;
+    font-size: 64px;
+    letter-spacing: 1px;
+}
+
+h4{
+    color: white;
+    font-size: 32px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+h1,h4, button{
+    margin-bottom: 10px;
+}
+
+button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background-color: goldenrod;
+    color: #016f32;
+    border-radius: 2px;
+}
+
+.status{
+    font-style: italic;
 }
 
