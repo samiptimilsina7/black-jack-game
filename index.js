@@ -1,14 +1,19 @@
 let firstNumber=0;
 let secondNumber=0;
 let sumNumber=0;
+let cardArray=[];
 
 function startgame(){
+    cardArray=[]; //when clicking the start game button again after clicking it first, the numbers values doesnt add up like 2,4,6 numbers
+    
     initialMessage();
     firstNumber=Math.floor(Math.random()*13+1);
     secondNumber=Math.floor(Math.random()*13+1);
-    sumNumber=firstNumber+secondNumber;
-    document.querySelector(".cards").innerHTML+=firstNumber+" "+secondNumber;
-    document.querySelector(".sum").innerHTML+=sumNumber;
+    cardArray.push(firstNumber,secondNumber);
+    console.log(cardArray)
+
+    sumAndDisplayCards();
+
     ifchecking(sumNumber);
 }
 
@@ -33,6 +38,8 @@ function reset(){
         sumNumber=0;
         initialMessage();
     }, 3000);
+    
+    cardArray=[];
 }
 
 function initialMessage(){
@@ -46,8 +53,26 @@ function newcard(){
     let thirdNumber=Math.floor(Math.random()*13+1);
     console.log(thirdNumber)
     console.log(sumNumber)
-    sumNumber+=thirdNumber;
-    document.querySelector(".cards").innerHTML+=" "+thirdNumber;
-    document.querySelector(".sum").innerHTML+=sumNumber;
+
+    cardArray.push(thirdNumber);
+
+    sumAndDisplayCards();
+
+    // sumNumber+=thirdNumber;
+    // document.querySelector(".cards").innerHTML+=" "+thirdNumber;
+    // document.querySelector(".sum").innerHTML+=sumNumber;
     ifchecking(sumNumber);
 }
+
+function sumAndDisplayCards(){
+    sumNumber=0;
+    document.querySelector(".cards").innerHTML="Cards: ";
+
+    cardArray.forEach((number)=>{
+        sumNumber+=number;
+        document.querySelector(".cards").innerHTML+=" "+number;
+    });
+    
+    document.querySelector(".sum").innerHTML+=sumNumber;
+}
+
